@@ -70,8 +70,21 @@ The frontend JavaScript (`script.js`) dynamically selects the correct API endpoi
 
 ## 📁 Repository Structure
 
-. ├── index.html # Homepage / Landing Page ├── style.css # Primary Stylesheet ├── script.js # Core JavaScript (Interactivity, API Fetching) ├── pages/ # HTML files for sub-pages │ ├── about.html │ ├── blog.html # Blog List View │ ├── blog-post.html # Single Blog Post View │ ├── contact.html │ ├── projects.html # Projects List View │ └── services.html ├── img/ # Static image assets (logos, profile picture, etc.) ├── my-cv.pdf # Curriculum Vitae file ├── README.md # This documentation file └── .gitignore # Specifies intentionally untracked files
-
+.
+├── index.html # Homepage / Landing Page
+├── style.css # Primary Stylesheet
+├── script.js # Core JavaScript (Interactivity, API Fetching)
+├── pages/ # HTML files for sub-pages
+│ ├── about.html
+│ ├── blog.html # Blog List View
+│ ├── blog-post.html # Single Blog Post View
+│ ├── contact.html
+│ ├── projects.html # Projects List View
+│ └── services.html
+├── img/ # Static image assets (logos, profile picture, etc.)
+├── my-cv.pdf # Curriculum Vitae file
+├── README.md # This documentation file
+└── .gitignore # Specifies intentionally untracked files
 
 ---
 
