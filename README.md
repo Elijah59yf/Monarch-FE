@@ -1,6 +1,8 @@
 # Monarch Personal Website - Frontend
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) **Live Site:** [https://monarchdem.me](https://monarchdem.me) ---
+**Live Site:** [https://monarchdem.me](https://monarchdem.me)
+
+---
 
 ## 📜 Overview
 
@@ -30,8 +32,8 @@ It features a modern, responsive design with a distinct dark theme accented by g
     * [Font Awesome](https://fontawesome.com/): For iconography.
     * [Google Fonts](https://fonts.google.com/): Utilizes the 'Poppins' font family.
 * **Backend Services (Separate Repositories):**
-    * CMS: [Strapi](https://strapi.io/) (Self-hosted)
-    * Mail Service: [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [@sendgrid/mail](https://github.com/sendgrid/sendgrid-nodejs) (Self-hosted)
+    * CMS: [Strapi](https://strapi.io/) (Self-hosted) - [Elijah59yf/Monarch-Strapi-BE](https://github.com/Elijah59yf/Monarch-Strapi-BE)
+    * Mail Service: [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [@sendgrid/mail](https://github.com/sendgrid/sendgrid-nodejs) (Self-hosted) - [Elijah59yf/Monarch-Mail-BE](https://github.com/Elijah59yf/Monarch-Mail-BE)
 
 ---
 
@@ -41,15 +43,15 @@ It features a modern, responsive design with a distinct dark theme accented by g
 
 * A local web server (Apache, Nginx, or a development server like VS Code's Live Server). Apache configured on port 8080 is used in the current setup.
 * Running instances of the backend services:
-    * **Monarch CMS (Strapi):** Typically running on `http://localhost:1337`. ([Link to your Strapi backend repo])
-    * **Monarch Mail Backend:** Typically running on `http://localhost:3000`. ([Link to your Mail backend repo])
+    * **Monarch CMS (Strapi):** Typically running on `http://localhost:1337`. (See [CMS Repo](https://github.com/Elijah59yf/Monarch-Strapi-BE))
+    * **Monarch Mail Backend:** Typically running on `http://localhost:3000`. (See [Mail Repo](https://github.com/Elijah59yf/Monarch-Mail-BE))
 
 ### Steps
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[your-username]/[your-repo-name].git
-    cd [your-repo-name]
+    git clone [https://github.com/Elijah59yf/Monarch-FE.git](https://github.com/Elijah59yf/Monarch-FE.git)
+    cd Monarch-FE
     ```
 2.  **Configure Local Server:** Set up your chosen web server to serve the contents of this repository. For Apache, ensure the Virtual Host configuration points to this directory and listens on the desired port (e.g., 8080).
 3.  **Access:** Open your browser and navigate to the local URL (e.g., `http://localhost:8080`). The site should connect to the locally running backend services.
@@ -60,24 +62,46 @@ It features a modern, responsive design with a distinct dark theme accented by g
 
 This project utilizes a self-hosted architecture exposed securely via Cloudflare Tunnels:
 
-* **Frontend (`monarch-website`):** Served by Apache locally on port `8080`. Tunneled to `https://monarchdem.me`.
-* **CMS API (`monarch-cms`):** Strapi instance running locally on port `1337`. Tunneled to `https://api.monarchdem.me`.
-* **Mail API (`monarch-backend`):** Node.js/Express/SendGrid server running locally on port `3000`. Tunneled to `https://mail.monarchdem.me`.
+* **Frontend (`Monarch-FE`):** Served by Apache locally on port `8080`. Tunneled to `https://monarchdem.me`.
+* **CMS API (`Monarch-Strapi-BE`):** Strapi instance running locally on port `1337`. Tunneled to `https://api.monarchdem.me`.
+* **Mail API (`Monarch-Mail-BE`):** Node.js/Express/SendGrid server running locally on port `3000`. Tunneled to `https://mail.monarchdem.me`.
 
 The frontend JavaScript (`script.js`) dynamically selects the correct API endpoints (local or production) based on the `window.location.hostname`.
 
 ---
 
+## 📁 Repository Structure
+
+.
+├── index.html # Homepage / Landing Page
+├── style.css # Primary Stylesheet
+├── script.js # Core JavaScript (Interactivity, API Fetching)
+├── pages/ # HTML files for sub-pages
+│ ├── about.html
+│ ├── blog.html # Blog List View
+│ ├── blog-post.html # Single Blog Post View
+│ ├── contact.html
+│ ├── projects.html # Projects List View
+│ └── services.html
+├── img/ # Static image assets (logos, profile picture, etc.)
+├── my-cv.pdf # Curriculum Vitae file
+├── README.md # This documentation file
+└── .gitignore # Specifies intentionally untracked files
+
+---
+
 ## 🤝 Contributing
 
-While this is a personal project, suggestions and feedback are welcome. Please feel free to open an issue if you spot bugs or have ideas for improvement. ([Link to issues page if public])
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Elijah59yf/Monarch-FE/issues).
 
 ---
 
 ## 📝 License
 
-Distributed under the MIT License. See `LICENSE` file for more information (if you choose to add one).
+Currently unlicensed. (Consider adding an MIT `LICENSE` file if you wish to make it open source).
 
 ---
 
 _Developed with ❤️ by Akinseloyin Elijah Oluwademilade (Monarch)_
+
+
