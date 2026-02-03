@@ -330,6 +330,7 @@ header .container {
         transition: var(--transition-medium);
         z-index: 9998;
         isolation: isolate;
+        padding-bottom: 15vh;
     }
     
     .nav-links.active {
@@ -338,9 +339,21 @@ header .container {
         pointer-events: all;
     }
     
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    
     .nav-links a {
         font-size: 1.5rem;
         text-transform: none;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: transparent;
     }
 }
 
