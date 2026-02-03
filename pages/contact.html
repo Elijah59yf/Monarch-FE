@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Monarch</title>
+    <meta name="description" content="Let's build something meaningful together.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">Monarch</a>
+            <nav>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Journal</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Split Layout -->
+        <section class="contact-section fade-in">
+            <div class="contact-info">
+                <h2>Let's Connect</h2>
+                <p>Have a project in mind? A question? Or just want to say hello? I'd love to hear from you.</p>
+                
+                <div class="contact-details" style="margin-top: 3rem;">
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <span>eakinseloyin@gmail.com</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>linkedin.com/in/elijah59yf</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/Elijah59yf</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-filled">
+                        Send Message
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">Monarch</span>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/elijah59yf" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Elijah59yf" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:eakinseloyin@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p>&copy; 2026 Akinseloyin Elijah Oluwademilade</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a id="back-to-top" href="#"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="../script.js" defer></script>
+</body>
+</html>
