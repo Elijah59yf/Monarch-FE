@@ -3,6 +3,43 @@
    Subtle interactions & mindful motion
    ============================================ */
 
+/* --- Theme Toggle (Dark Mode) --- */
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Initialize theme from localStorage or system preference
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (prefersDark.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+}
+
+// Toggle theme
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+// Initialize on load
+initTheme();
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+// Listen for system preference changes
+prefersDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+});
+
 /* --- Mobile Navigation --- */
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
