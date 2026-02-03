@@ -1,102 +1,220 @@
-# Monarch Personal Website - Frontend
+<div align="center">
 
-**Live Site:** [https://monarchdem.me](https://monarchdem.me)
+# モナーク
 
----
+### **MONARCH**
 
-## 📜 Overview
+*Where precision meets purpose*
 
-This repository hosts the frontend code for the personal portfolio and blog of **Akinseloyin Elijah Oluwademilade (Monarch)**, a Computer Engineering student at the University of Lagos. The site serves as a digital presence to showcase skills, completed projects, and share insights via a blog.
+[![Live Site](https://img.shields.io/badge/🌐_Live_Site-monarchdem.me-1a1a2e?style=for-the-badge&labelColor=0d0d0d)](https://monarchdem.me)
+[![GitHub](https://img.shields.io/badge/GitHub-Elijah59yf-1a1a2e?style=for-the-badge&logo=github&labelColor=0d0d0d)](https://github.com/Elijah59yf)
 
-It features a modern, responsive design with a distinct dark theme accented by gold, and dynamically loads content (blog posts, projects) from a self-hosted Strapi CMS backend.
+<br>
 
----
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
+<img src="https://img.shields.io/badge/Strapi-2F2E8B?style=flat-square&logo=strapi&logoColor=white" alt="Strapi"/>
+<img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare"/>
 
-## ✨ Key Features
+</div>
 
-* **Modern Aesthetic:** Dark theme, gold accents, Poppins font, rounded corners, and subtle animations.
-* **Dynamic Content:** Seamless integration with a headless Strapi CMS for blog posts and project showcases.
-* **Fully Responsive:** Adapts gracefully to desktops, tablets, and mobile devices using CSS media queries and a hamburger menu.
-* **Interactive UI:** Includes scroll-triggered fade-in animations and a "Back to Top" button.
-* **Functional Contact Form:** Connects to a dedicated Node.js/SendGrid backend for reliable email notifications.
-* **Key Information:** Includes sections for About Me, Services/Skills, Projects Portfolio, Blog, and Contact.
-* **CV Download:** Provides a direct download link for the user's Curriculum Vitae.
-
----
-
-## 🛠️ Technology Stack
-
-* **Core:** HTML5, CSS3 (with Variables/Custom Properties), Vanilla JavaScript (ES6+)
-* **API Interaction:** `fetch` API for asynchronous calls to backend services.
-* **Styling Aids:**
-    * [Font Awesome](https://fontawesome.com/): For iconography.
-    * [Google Fonts](https://fonts.google.com/): Utilizes the 'Poppins' font family.
-* **Backend Services (Separate Repositories):**
-    * CMS: [Strapi](https://strapi.io/) (Self-hosted) - [Elijah59yf/Monarch-Strapi-BE](https://github.com/Elijah59yf/Monarch-Strapi-BE)
-    * Mail Service: [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [@sendgrid/mail](https://github.com/sendgrid/sendgrid-nodejs) (Self-hosted) - [Elijah59yf/Monarch-Mail-BE](https://github.com/Elijah59yf/Monarch-Mail-BE)
+<br>
 
 ---
 
-## 🚀 Local Development Setup
+<br>
+
+## ✦ Overview
+
+A personal portfolio and digital journal for **Akinseloyin Elijah Oluwademilade (Monarch)** — Computer Engineering student at the University of Lagos. 
+
+This site embodies a design philosophy where **Japanese minimalism meets Scandinavian functionality** — clean lines, purposeful whitespace, and an understated elegance that lets the work speak for itself.
+
+<br>
+
+## ✦ Design Philosophy
+
+```
+精密 (Precision)  ·  目的 (Purpose)  ·  職人技 (Craftsmanship)
+```
+
+| Aspect | Approach |
+|:-------|:---------|
+| **Typography** | Cormorant Garamond × DM Sans — editorial elegance meets modern clarity |
+| **Color Palette** | Deep charcoal, muted gold accents, warm stone tones |
+| **Layout** | Asymmetric grids with generous breathing room |
+| **Interaction** | Subtle fade-ins, smooth transitions, micro-animations |
+
+<br>
+
+## ✦ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 Aesthetic
+- Dark theme with gold accents
+- Japanese-inspired minimalism
+- Scroll-triggered animations
+- Responsive across all devices
+
+</td>
+<td width="50%">
+
+### ⚡ Functional
+- Dynamic CMS integration
+- Functional contact form
+- Blog & project showcases  
+- CV download capability
+
+</td>
+</tr>
+</table>
+
+<br>
+
+## ✦ Architecture
+
+```
+                    ┌─────────────────────────────────────┐
+                    │         Cloudflare Tunnels          │
+                    └──────────────┬──────────────────────┘
+                                   │
+          ┌────────────────────────┼────────────────────────┐
+          │                        │                        │
+          ▼                        ▼                        ▼
+   ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+   │  Frontend   │         │  Strapi CMS │         │ Mail Server │
+   │   :8080     │         │   :1337     │         │   :3000     │
+   └─────────────┘         └─────────────┘         └─────────────┘
+   monarchdem.me         api.monarchdem.me       mail.monarchdem.me
+```
+
+<br>
+
+## ✦ Tech Stack
+
+<details>
+<summary><b>Frontend</b></summary>
+<br>
+
+| Technology | Purpose |
+|:-----------|:--------|
+| HTML5 | Semantic structure |
+| CSS3 | Custom properties, Grid, Flexbox |
+| Vanilla JS | ES6+ modules, Fetch API |
+| Font Awesome | Iconography |
+| Google Fonts | Cormorant Garamond, DM Sans, Noto Sans JP |
+
+</details>
+
+<details>
+<summary><b>Backend Services</b></summary>
+<br>
+
+| Service | Stack | Repository |
+|:--------|:------|:-----------|
+| CMS | Strapi (Self-hosted) | [Monarch-Strapi-BE](https://github.com/Elijah59yf/Monarch-Strapi-BE) |
+| Mail | Node.js + Express + SendGrid | [Monarch-Mail-BE](https://github.com/Elijah59yf/Monarch-Mail-BE) |
+
+</details>
+
+<details>
+<summary><b>Infrastructure</b></summary>
+<br>
+
+- **Web Server:** Apache
+- **Tunneling:** Cloudflare Tunnels
+- **DNS:** Cloudflare
+
+</details>
+
+<br>
+
+## ✦ Project Structure
+
+```
+Monarch-FE/
+│
+├── index.html              # Landing page
+├── style.css               # Global styles
+├── script.js               # Core functionality
+│
+├── pages/
+│   ├── about.html          # Biography & journey
+│   ├── services.html       # Skills & expertise
+│   ├── projects.html       # Portfolio showcase
+│   ├── blog.html           # Journal entries
+│   ├── blog-post.html      # Single post view
+│   └── contact.html        # Get in touch
+│
+├── img/                    # Static assets
+└── my-cv.pdf               # Curriculum Vitae
+```
+
+<br>
+
+## ✦ Getting Started
 
 ### Prerequisites
 
-* A local web server (Apache, Nginx, or a development server like VS Code's Live Server). Apache configured on port 8080 is used in the current setup.
-* Running instances of the backend services:
-    * **Monarch CMS (Strapi):** Typically running on `http://localhost:1337`. (See [CMS Repo](https://github.com/Elijah59yf/Monarch-Strapi-BE))
-    * **Monarch Mail Backend:** Typically running on `http://localhost:3000`. (See [Mail Repo](https://github.com/Elijah59yf/Monarch-Mail-BE))
+- Local web server (Apache/Nginx/Live Server)
+- Backend services running:
+  - Strapi CMS → `localhost:1337`
+  - Mail API → `localhost:3000`
 
-### Steps
+### Quick Start
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/Elijah59yf/Monarch-FE.git](https://github.com/Elijah59yf/Monarch-FE.git)
-    cd Monarch-FE
-    ```
-2.  **Configure Local Server:** Set up your chosen web server to serve the contents of this repository. For Apache, ensure the Virtual Host configuration points to this directory and listens on the desired port (e.g., 8080).
-3.  **Access:** Open your browser and navigate to the local URL (e.g., `http://localhost:8080`). The site should connect to the locally running backend services.
+```bash
+# Clone the repository
+git clone https://github.com/Elijah59yf/Monarch-FE.git
 
----
+# Navigate to directory
+cd Monarch-FE
 
-## ☁️ Deployment Architecture
+# Serve with your preferred method
+# Option 1: VS Code Live Server
+# Option 2: Python
+python -m http.server 8080
 
-This project utilizes a self-hosted architecture exposed securely via Cloudflare Tunnels:
+# Option 3: Node.js
+npx serve -p 8080
+```
 
-* **Frontend (`Monarch-FE`):** Served by Apache locally on port `8080`. Tunneled to `https://monarchdem.me`.
-* **CMS API (`Monarch-Strapi-BE`):** Strapi instance running locally on port `1337`. Tunneled to `https://api.monarchdem.me`.
-* **Mail API (`Monarch-Mail-BE`):** Node.js/Express/SendGrid server running locally on port `3000`. Tunneled to `https://mail.monarchdem.me`.
+<br>
 
-The frontend JavaScript (`script.js`) dynamically selects the correct API endpoints (local or production) based on the `window.location.hostname`.
+## ✦ Related Repositories
 
----
+| Repository | Description |
+|:-----------|:------------|
+| [Monarch-Strapi-BE](https://github.com/Elijah59yf/Monarch-Strapi-BE) | Headless CMS for blog posts & projects |
+| [Monarch-Mail-BE](https://github.com/Elijah59yf/Monarch-Mail-BE) | Contact form email service |
 
-## 📁 Repository Structure
+<br>
 
-.
-├── index.html # Homepage / Landing Page
-├── style.css # Primary Stylesheet
-├── script.js # Core JavaScript (Interactivity, API Fetching)
-├── pages/ # HTML files for sub-pages
-│ ├── about.html
-│ ├── blog.html # Blog List View
-│ ├── blog-post.html # Single Blog Post View
-│ ├── contact.html
-│ ├── projects.html # Projects List View
-│ └── services.html
-├── img/ # Static image assets (logos, profile picture, etc.)
-├── my-cv.pdf # Curriculum Vitae file
-├── README.md # This documentation file
-└── .gitignore # Specifies intentionally untracked files
+## ✦ Contributing
+
+Contributions are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+[![Issues](https://img.shields.io/github/issues/Elijah59yf/Monarch-FE?style=flat-square&color=1a1a2e)](https://github.com/Elijah59yf/Monarch-FE/issues)
+
+<br>
 
 ---
 
-## 🤝 Contributing
+<div align="center">
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Elijah59yf/Monarch-FE/issues).
+<br>
 
----
+*Crafted with intention*
 
-## 📝 License
+**モナーク · MONARCH · 2026**
+
+<br>
+
+</div>
 
 Currently unlicensed. (Consider adding an MIT `LICENSE` file if you wish to make it open source).
 
