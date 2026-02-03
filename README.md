@@ -202,6 +202,12 @@ Contributions are welcome. For major changes, please open an issue first to disc
 
 <br>
 
+## ✦ License
+
+This project is licensed under the [MIT License](LICENSE).
+
+<br>
+
 ---
 
 <div align="center">
@@ -215,11 +221,5 @@ Contributions are welcome. For major changes, please open an issue first to disc
 <br>
 
 </div>
-
-Currently unlicensed. (Consider adding an MIT `LICENSE` file if you wish to make it open source).
-
----
-
-_Developed with ❤️ by Akinseloyin Elijah Oluwademilade (Monarch)_
 
 
