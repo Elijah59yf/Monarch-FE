@@ -1146,10 +1146,17 @@ section {
     padding: 1rem;
     font-family: var(--font-body);
     font-size: 1rem;
+    color: var(--ink);
     background: var(--warm-white);
     border: 1px solid var(--sand-dark);
     border-radius: var(--radius-sm);
     transition: var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--charcoal);
+    opacity: 0.7;
 }
 
 .form-group input:focus,
