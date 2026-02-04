@@ -6,6 +6,14 @@
     <title>Contact | Monarch</title>
     <meta name="description" content="Let's build something meaningful together.">
     
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#c67b5c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Monarch">
+    <link rel="apple-touch-icon" href="../img/icon-192.png">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +38,12 @@
                     <div class="line"></div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Journal</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+                    <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="blog.html" data-i18n="nav.journal">Journal</a></li>
+                    <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,8 +53,8 @@
         <!-- Contact Split Layout -->
         <section class="contact-section fade-in">
             <div class="contact-info">
-                <h2>Let's Connect</h2>
-                <p>Have a project in mind? A question? Or just want to say hello? I'd love to hear from you.</p>
+                <h2 data-i18n="contact.title">Let's Connect</h2>
+                <p data-i18n="contact.subtitle">Have a project in mind? A question? Or just want to say hello? I'd love to hear from you.</p>
                 
                 <div class="contact-details" style="margin-top: 3rem;">
                     <div class="contact-detail">
@@ -67,18 +75,18 @@
             <div class="contact-form-wrapper">
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <label for="name" data-i18n="contact.name">Name</label>
+                        <input type="text" id="name" name="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Your name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        <label for="email" data-i18n="contact.email">Email</label>
+                        <input type="email" id="email" name="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="your@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+                        <label for="message" data-i18n="contact.message">Message</label>
+                        <textarea id="message" name="message" data-i18n-placeholder="contact.messagePlaceholder" placeholder="What's on your mind?" required></textarea>
                     </div>
-                    <button type="submit" class="btn-filled">
+                    <button type="submit" class="btn-filled" data-i18n="contact.send">
                         Send Message
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -113,10 +121,31 @@
         <i class="fas fa-moon"></i>
         <i class="fas fa-sun"></i>
     </button>
+    
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="lang-toggle" aria-label="Change language" title="Change language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-code" id="current-lang">EN</span>
+    </button>
+    <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-option active" data-lang="en">
+            <span class="flag">🇬🇧</span>
+            <span>English</span>
+        </button>
+        <button class="lang-option" data-lang="ja">
+            <span class="flag">🇯🇵</span>
+            <span>日本語</span>
+        </button>
+        <button class="lang-option" data-lang="de">
+            <span class="flag">🇩🇪</span>
+            <span>Deutsch</span>
+        </button>
+    </div>
 
     <!-- Back to Top -->
     <a id="back-to-top" href="#"><i class="fas fa-arrow-up"></i></a>
 
+    <script src="../translations.js"></script>
     <script src="../script.js" defer></script>
 </body>
 </html>

@@ -6,6 +6,14 @@
     <title>Monarch | Digital Craftsman</title>
     <meta name="description" content="Where precision meets purpose. Building robust systems and thoughtful digital solutions.">
     
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#c67b5c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Monarch">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +38,12 @@
                     <div class="line"></div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/services.html">Services</a></li>
-                    <li><a href="pages/projects.html">Projects</a></li>
-                    <li><a href="pages/blog.html">Journal</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+                    <li><a href="pages/about.html" data-i18n="nav.about">About</a></li>
+                    <li><a href="pages/services.html" data-i18n="nav.services">Services</a></li>
+                    <li><a href="pages/projects.html" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="pages/blog.html" data-i18n="nav.journal">Journal</a></li>
+                    <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,11 +53,11 @@
         <!-- Hero - Asymmetric Split -->
         <section class="hero">
             <div class="hero-content">
-                <span class="hero-tagline">Digital Engineering</span>
-                <h1>Crafting Systems with Purpose</h1>
-                <p>Specializing in network engineering, system administration, and cloud infrastructure — designing robust solutions that keep businesses connected and secure.</p>
+                <span class="hero-tagline" data-i18n="hero.tagline">Digital Engineering</span>
+                <h1 data-i18n="hero.title">Crafting Systems with Purpose</h1>
+                <p data-i18n="hero.description">Specializing in network engineering, system administration, and cloud infrastructure — designing robust solutions that keep businesses connected and secure.</p>
                 <a href="pages/about.html" class="btn">
-                    Explore My Work
+                    <span data-i18n="hero.cta">Explore My Work</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -62,9 +70,9 @@
         <section class="explore-section fade-in">
             <div class="container">
                 <div class="section-header">
-                    <span class="label">Discover</span>
-                    <h2>Where Craft Meets Code</h2>
-                    <p>Explore the intersection of thoughtful design and technical precision.</p>
+                    <span class="label" data-i18n="explore.label">Discover</span>
+                    <h2 data-i18n="explore.title">Where Craft Meets Code</h2>
+                    <p data-i18n="explore.subtitle">Explore the intersection of thoughtful design and technical precision.</p>
                 </div>
                 
                 <div class="explore-grid fade-in-stagger">
@@ -72,10 +80,10 @@
                         <div class="icon">
                             <i class="fa-solid fa-user"></i>
                         </div>
-                        <h3>About</h3>
-                        <p>The journey from curiosity to craft. Computer Engineering at UNILAG, with a focus on infrastructure and systems.</p>
+                        <h3 data-i18n="explore.about.title">About</h3>
+                        <p data-i18n="explore.about.desc">The journey from curiosity to craft. Computer Engineering at UNILAG, with a focus on infrastructure and systems.</p>
                         <a href="pages/about.html" class="card-link">
-                            Learn more <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="explore.about.link">Learn more</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     
@@ -83,10 +91,10 @@
                         <div class="icon">
                             <i class="fa-solid fa-shapes"></i>
                         </div>
-                        <h3>Expertise</h3>
-                        <p>Network engineering, system administration, and IT solutions — the invisible architecture of modern technology.</p>
+                        <h3 data-i18n="explore.expertise.title">Expertise</h3>
+                        <p data-i18n="explore.expertise.desc">Network engineering, system administration, and IT solutions — the invisible architecture of modern technology.</p>
                         <a href="pages/services.html" class="card-link">
-                            View services <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="explore.expertise.link">View services</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     
@@ -94,11 +102,75 @@
                         <div class="icon">
                             <i class="fa-solid fa-lightbulb"></i>
                         </div>
-                        <h3>Work</h3>
-                        <p>Selected projects showcasing practical solutions and technical craftsmanship.</p>
+                        <h3 data-i18n="explore.work.title">Work</h3>
+                        <p data-i18n="explore.work.desc">Selected projects showcasing practical solutions and technical craftsmanship.</p>
                         <a href="pages/projects.html" class="card-link">
-                            See projects <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="explore.work.link">See projects</span> <i class="fas fa-arrow-right"></i>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="label" data-i18n="testimonials.label">Testimonials</span>
+                    <h2 data-i18n="testimonials.title">What People Say</h2>
+                    <p data-i18n="testimonials.subtitle">Feedback from those I've had the pleasure to work with.</p>
+                </div>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonials-track" id="testimonials-track">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Elijah's attention to detail and technical expertise made our network infrastructure project a complete success. His methodical approach to problem-solving is remarkable.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <strong>David Chen</strong>
+                                    <span>IT Director, TechFlow Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Working with Monarch was a breath of fresh air. He combines deep technical knowledge with clear communication — a rare find in the industry.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <strong>Sarah Okonkwo</strong>
+                                    <span>CTO, CloudNine Ventures</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p>The security audit and improvements Elijah implemented gave us peace of mind. Professional, thorough, and always available when we needed support.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <strong>Michael Adeyemi</strong>
+                                    <span>Founder, SecureBase Ltd</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-nav">
+                        <button class="testimonial-btn prev" id="testimonial-prev" aria-label="Previous testimonial">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <div class="testimonials-dots" id="testimonials-dots"></div>
+                        <button class="testimonial-btn next" id="testimonial-next" aria-label="Next testimonial">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -131,10 +203,31 @@
         <i class="fas fa-moon"></i>
         <i class="fas fa-sun"></i>
     </button>
+    
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="lang-toggle" aria-label="Change language" title="Change language">
+        <i class="fas fa-globe"></i>
+        <span class="lang-code" id="current-lang">EN</span>
+    </button>
+    <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-option active" data-lang="en">
+            <span class="flag">🇬🇧</span>
+            <span>English</span>
+        </button>
+        <button class="lang-option" data-lang="ja">
+            <span class="flag">🇯🇵</span>
+            <span>日本語</span>
+        </button>
+        <button class="lang-option" data-lang="de">
+            <span class="flag">🇩🇪</span>
+            <span>Deutsch</span>
+        </button>
+    </div>
 
     <!-- Back to Top -->
     <a id="back-to-top" href="#"><i class="fas fa-arrow-up"></i></a>
 
+    <script src="translations.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>
