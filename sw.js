@@ -3,7 +3,7 @@
    Offline support & caching
    ============================================ */
 
-const CACHE_NAME = 'monarch-v1';
+const CACHE_NAME = 'monarch-v2';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache immediately on install
