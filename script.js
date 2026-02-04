@@ -3,22 +3,6 @@
    Subtle interactions & mindful motion
    ============================================ */
 
-/* --- Service Worker Registration (PWA) --- */
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Determine the correct path based on current location
-        const swPath = window.location.pathname.includes('/pages/') ? '../sw.js' : 'sw.js';
-        
-        navigator.serviceWorker.register(swPath)
-            .then((registration) => {
-                console.log('SW registered:', registration.scope);
-            })
-            .catch((error) => {
-                console.log('SW registration failed:', error);
-            });
-    });
-}
-
 /* --- Theme Toggle (Dark Mode) --- */
 const themeToggle = document.querySelector('.theme-toggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
