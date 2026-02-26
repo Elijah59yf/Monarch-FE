@@ -945,6 +945,79 @@ function filterProjects(category) {
     }
 }
 
+/* --- Project Status Check --- */
+
+// Platforms that are always up — no point pinging these
+const EXTERNAL_HOSTS = [
+    'github.com', 'gitlab.com', 'bitbucket.org',
+    'play.google.com', 'apps.apple.com', 'f-droid.org',
+    'npmjs.com', 'pypi.org', 'crates.io', 'hub.docker.com',
+    'youtube.com', 'youtu.be', 'vimeo.com',
+    'figma.com', 'dribbble.com', 'behance.net',
+    'linkedin.com', 'twitter.com', 'x.com',
+    'medium.com', 'dev.to', 'hashnode.dev',
+    'notion.so', 'docs.google.com',
+    'codepen.io', 'replit.com', 'stackblitz.com',
+];
+
+function isSelfHostedUrl(url) {
+    if (!url || url === '#') return false;
+    try {
+        const hostname = new URL(url).hostname.toLowerCase();
+        return !EXTERNAL_HOSTS.some(ext => hostname === ext || hostname.endsWith('.' + ext));
+    } catch {
+        return false;
+    }
+}
+
+async function checkSiteStatus(url) {
+    if (!url || url === '#') return 'unknown';
+    
+    try {
+        // Use no-cors mode: a reachable server returns an opaque response,
+        // an unreachable one throws a TypeError (network error).
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 6000);
+        
+        await fetch(url, {
+            method: 'HEAD',
+            mode: 'no-cors',
+            cache: 'no-store',
+            signal: controller.signal
+        });
+        
+        clearTimeout(timeout);
+        return 'online';
+    } catch {
+        return 'offline';
+    }
+}
+
+function updateStatusBadge(badge, status) {
+    badge.classList.remove('checking', 'online', 'offline');
+    
+    if (status === 'online') {
+        badge.classList.add('online');
+        badge.querySelector('.status-text').textContent = 'Live';
+    } else if (status === 'offline') {
+        badge.classList.add('offline');
+        badge.querySelector('.status-text').textContent = 'Offline';
+    }
+}
+
+async function checkAllProjectStatuses() {
+    const badges = document.querySelectorAll('.project-status[data-url]');
+    
+    // Check all in parallel
+    const checks = Array.from(badges).map(async (badge) => {
+        const url = badge.dataset.url;
+        const status = await checkSiteStatus(url);
+        updateStatusBadge(badge, status);
+    });
+    
+    await Promise.allSettled(checks);
+}
+
 async function fetchProjects() {
     const STRAPI_BASE_URL = getStrapiBaseUrl();
     const STRAPI_URL = `${STRAPI_BASE_URL}/api/projects?populate=main_image&sort=createdAt:desc`;
@@ -990,6 +1063,8 @@ async function fetchProjects() {
                     : data.main_image.url;
             }
             
+            const projectLink = data.link || '#';
+            
             const projectElement = document.createElement('div');
             projectElement.className = 'project-card fade-in';
             projectElement.style.transitionDelay = `${index * 0.1}s`;
@@ -1005,7 +1080,7 @@ async function fetchProjects() {
                     <div class="project-tags">
                         ${data.tags ? data.tags.split(',').map(tag => `<span>${tag.trim()}</span>`).join('') : ''}
                     </div>
-                    <a href="${data.link || '#'}" target="_blank" class="btn">
+                    <a href="${projectLink}" target="_blank" class="btn">
                         View Project <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -1030,6 +1105,9 @@ async function fetchProjects() {
         }
         
         initProjectFilters();
+        
+        // Kick off status checks after cards are rendered
+        checkAllProjectStatuses();
         
     } catch (error) {
         console.error('Projects fetch error:', error);

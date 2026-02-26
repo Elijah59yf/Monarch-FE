@@ -1222,9 +1222,6 @@ section {
     border: 1px solid transparent;
 }
 
-.project-card:nth-child(3n+1) {
-    grid-row: span 2;
-}
 
 .project-card:hover {
     border-color: var(--stone);
@@ -1241,8 +1238,8 @@ section {
     overflow: hidden;
 }
 
-.project-card:nth-child(3n+1) .project-image {
-    height: 300px;
+.project-card:nth-child(3n+1) {
+    grid-row: span 2;
 }
 
 .project-image img {
@@ -1288,6 +1285,83 @@ section {
     background: var(--sand);
     color: var(--charcoal);
     border-radius: 50px;
+}
+
+/* Project Status Indicator */
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    z-index: 2;
+    backdrop-filter: blur(8px);
+    transition: var(--transition-medium);
+}
+
+.project-card {
+    position: relative;
+}
+
+.project-status .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Checking state */
+.project-status.checking {
+    background: rgba(180, 180, 180, 0.15);
+    color: var(--stone);
+    border: 1px solid rgba(180, 180, 180, 0.2);
+}
+
+.project-status.checking .status-dot {
+    background: var(--stone);
+    animation: status-pulse 1.5s ease-in-out infinite;
+}
+
+/* Online state */
+.project-status.online {
+    background: rgba(122, 139, 110, 0.15);
+    color: var(--moss);
+    border: 1px solid rgba(122, 139, 110, 0.25);
+}
+
+.project-status.online .status-dot {
+    background: var(--moss);
+    box-shadow: 0 0 6px rgba(122, 139, 110, 0.5);
+    animation: status-glow-green 2s ease-in-out infinite;
+}
+
+/* Offline state */
+.project-status.offline {
+    background: rgba(198, 123, 92, 0.12);
+    color: var(--terracotta-muted);
+    border: 1px solid rgba(198, 123, 92, 0.2);
+}
+
+.project-status.offline .status-dot {
+    background: var(--terracotta-muted);
+    opacity: 0.7;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@keyframes status-glow-green {
+    0%, 100% { box-shadow: 0 0 4px rgba(122, 139, 110, 0.3); }
+    50% { box-shadow: 0 0 8px rgba(122, 139, 110, 0.6); }
 }
 
 @media (max-width: 900px) {
