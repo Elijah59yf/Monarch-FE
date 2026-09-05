@@ -1065,8 +1065,13 @@ async function fetchProjects() {
             
             const projectLink = data.link || '#';
             
+            // Only give a card the tall "featured" treatment if it actually
+            // has an image to fill that space with — otherwise it renders
+            // as a large, mostly-empty box.
+            const isFeatured = index % 3 === 0 && !!imageUrl;
+            
             const projectElement = document.createElement('div');
-            projectElement.className = 'project-card fade-in';
+            projectElement.className = 'project-card fade-in' + (isFeatured ? ' featured' : '');
             projectElement.style.transitionDelay = `${index * 0.1}s`;
             projectElement.dataset.tags = data.tags || '';
             
@@ -1087,6 +1092,16 @@ async function fetchProjects() {
             `;
             
             gridWrapper.appendChild(projectElement);
+            
+            const imgEl = projectElement.querySelector('.project-image img');
+            if (imgEl) {
+                imgEl.addEventListener('error', () => {
+                    const imageBox = projectElement.querySelector('.project-image');
+                    if (imageBox) imageBox.innerHTML = '<i class="fas fa-folder-open"></i>';
+                    projectElement.classList.remove('featured');
+                }, { once: true });
+            }
+            
             setTimeout(() => {
                 projectElement.classList.add('visible');
                 initBlurUpImages();
