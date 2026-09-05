@@ -1220,6 +1220,9 @@ section {
     overflow: hidden;
     transition: var(--transition-medium);
     border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 
@@ -1230,7 +1233,8 @@ section {
 }
 
 .project-image {
-    height: 200px;
+    min-height: 200px;
+    flex: 1 1 auto;
     background: var(--sand);
     display: flex;
     align-items: center;
