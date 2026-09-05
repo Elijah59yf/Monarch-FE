@@ -1242,7 +1242,7 @@ section {
     overflow: hidden;
 }
 
-.project-card:nth-child(3n+1) {
+.project-card.featured {
     grid-row: span 2;
 }
 
@@ -1373,11 +1373,11 @@ section {
         grid-template-columns: 1fr;
     }
     
-    .project-card:nth-child(3n+1) {
+    .project-card.featured {
         grid-row: auto;
     }
     
-    .project-card:nth-child(3n+1) .project-image {
+    .project-card.featured .project-image {
         height: 200px;
     }
 }
@@ -1993,6 +1993,8 @@ footer p {
     position: relative;
     overflow: hidden;
     background: var(--sand);
+    width: 100%;
+    height: 100%;
 }
 
 .blur-up-container img {
