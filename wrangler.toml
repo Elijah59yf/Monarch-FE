@@ -11,3 +11,6 @@ migrations_dir = "migrations"
 [[r2_buckets]]
 binding = "FILES"
 bucket_name = "monarch-files"
+
+[vars]
+STRAPI_URL = "https://api.monarchdem.me"
