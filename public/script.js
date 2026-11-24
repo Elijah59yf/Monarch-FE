@@ -430,57 +430,6 @@ function getStrapiBaseUrl() {
     return 'https://api.monarchdem.me'; 
 }
 
-function getMailServerUrl() { 
-    return isLocal ? 'http://localhost:3000' : 'https://mail.monarchdem.me'; 
-}
-
-/* --- Contact Form --- */
-const contactForm = document.querySelector('#contact-form');
-
-if (contactForm) {
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton ? submitButton.innerHTML : 'Send Message';
-    
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        if (submitButton) {
-            submitButton.innerHTML = 'Sending...';
-            submitButton.disabled = true;
-        }
-        
-        const formData = {
-            name: contactForm.querySelector('#name').value,
-            email: contactForm.querySelector('#email').value,
-            message: contactForm.querySelector('#message').value
-        };
-        
-        try {
-            const response = await fetch(`${getMailServerUrl()}/send-email`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-            
-            if (!response.ok) throw new Error('Network error');
-            
-            contactForm.reset();
-            if (submitButton) submitButton.innerHTML = 'Message Sent ✓';
-            
-        } catch (error) {
-            console.error('Contact form error:', error);
-            if (submitButton) submitButton.innerHTML = 'Error. Try Again.';
-        } finally {
-            setTimeout(() => {
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonText;
-                }
-            }, 3000);
-        }
-    });
-}
-
 /* --- Animated Skill Bars --- */
 function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-bar-item');

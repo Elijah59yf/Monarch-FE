@@ -65,7 +65,6 @@ This site embodies a design philosophy where **Japanese minimalism meets Scandin
 
 ### ⚡ Functional
 - Dynamic CMS integration
-- Functional contact form
 - Blog & project showcases  
 - CV download capability
 
@@ -147,8 +146,7 @@ Monarch-FE/
 │   ├── services.html       # Skills & expertise
 │   ├── projects.html       # Portfolio showcase
 │   ├── blog.html           # Journal entries
-│   ├── blog-post.html      # Single post view
-│   └── contact.html        # Get in touch
+│   └── blog-post.html      # Single post view
 │
 ├── img/                    # Static assets
 └── my-cv.pdf               # Curriculum Vitae
@@ -190,7 +188,6 @@ npx serve -p 8080
 | Repository | Description |
 |:-----------|:------------|
 | [Monarch-Strapi-BE](https://github.com/Elijah59yf/Monarch-Strapi-BE) | Headless CMS for blog posts & projects |
-| [Monarch-Mail-BE](https://github.com/Elijah59yf/Monarch-Mail-BE) | Contact form email service |
 
 <br>
 

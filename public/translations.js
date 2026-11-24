@@ -11,7 +11,6 @@ const translations = {
         "nav.services": "Services",
         "nav.projects": "Projects",
         "nav.journal": "Journal",
-        "nav.contact": "Contact",
         
         // Hero
         "hero.tagline": "Digital Engineering",
@@ -79,23 +78,9 @@ const translations = {
         "blog.views": "views",
         "blog.backToJournal": "Back to Journal",
         
-        // Contact Page
-        "contact.title": "Let's Connect",
-        "contact.subtitle": "Have a project in mind? A question? Or just want to say hello? I'd love to hear from you.",
-        "contact.name": "Name",
-        "contact.namePlaceholder": "Your name",
-        "contact.email": "Email",
-        "contact.emailPlaceholder": "your@email.com",
-        "contact.message": "Message",
-        "contact.messagePlaceholder": "What's on your mind?",
-        "contact.send": "Send Message",
-        
         // Common
         "loading": "Loading...",
-        "error": "Something went wrong.",
-        "offline.title": "You're Offline",
-        "offline.message": "Some content may not be available until you're back online.",
-        "offline.retry": "Try Again"
+        "error": "Something went wrong."
     },
     
     ja: {
@@ -105,7 +90,6 @@ const translations = {
         "nav.services": "サービス",
         "nav.projects": "プロジェクト",
         "nav.journal": "ジャーナル",
-        "nav.contact": "連絡",
         
         // Hero
         "hero.tagline": "デジタルエンジニアリング",
@@ -173,23 +157,9 @@ const translations = {
         "blog.views": "回視聽",
         "blog.backToJournal": "ジャーナルに戻る",
         
-        // Contact Page
-        "contact.title": "お問い合わせ",
-        "contact.subtitle": "プロジェクトのご相談、ご質問、または挨拶だけでも。ご連絡をお待ちしています。",
-        "contact.name": "お名前",
-        "contact.namePlaceholder": "お名前",
-        "contact.email": "メール",
-        "contact.emailPlaceholder": "your@email.com",
-        "contact.message": "メッセージ",
-        "contact.messagePlaceholder": "何かお考えですか？",
-        "contact.send": "メッセージを送る",
-        
         // Common
         "loading": "読み込み中...",
-        "error": "エラーが発生しました。",
-        "offline.title": "オフラインです",
-        "offline.message": "オンラインに戻るまで一部のコンテンツが利用できない場合があります。",
-        "offline.retry": "再試行"
+        "error": "エラーが発生しました。"
     },
     
     de: {
@@ -199,7 +169,6 @@ const translations = {
         "nav.services": "Leistungen",
         "nav.projects": "Projekte",
         "nav.journal": "Journal",
-        "nav.contact": "Kontakt",
         
         // Hero
         "hero.tagline": "Digitale Technik",
@@ -267,23 +236,9 @@ const translations = {
         "blog.views": "Aufrufe",
         "blog.backToJournal": "Zurück zum Journal",
         
-        // Contact Page
-        "contact.title": "Kontakt aufnehmen",
-        "contact.subtitle": "Haben Sie ein Projekt im Sinn? Eine Frage? Oder möchten Sie einfach Hallo sagen? Ich freue mich von Ihnen zu hören.",
-        "contact.name": "Name",
-        "contact.namePlaceholder": "Ihr Name",
-        "contact.email": "E-Mail",
-        "contact.emailPlaceholder": "ihre@email.com",
-        "contact.message": "Nachricht",
-        "contact.messagePlaceholder": "Was haben Sie auf dem Herzen?",
-        "contact.send": "Nachricht senden",
-        
         // Common
         "loading": "Wird geladen...",
-        "error": "Etwas ist schief gelaufen.",
-        "offline.title": "Sie sind offline",
-        "offline.message": "Einige Inhalte sind möglicherweise nicht verfügbar, bis Sie wieder online sind.",
-        "offline.retry": "Erneut versuchen"
+        "error": "Etwas ist schief gelaufen."
     }
 };
 
