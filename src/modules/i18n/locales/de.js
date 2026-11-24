@@ -1,4 +1,4 @@
-{
+export default {
     "_meta.name": "Deutsch",
     "_meta.intl": "de-DE",
 
@@ -109,4 +109,4 @@
 
     "error.title": "Etwas ist schief gelaufen.",
     "error.text": "Bitte versuchen Sie es gleich noch einmal."
-}
+};

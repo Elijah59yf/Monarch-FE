@@ -1,4 +1,4 @@
-{
+export default {
     "_meta.name": "日本語",
     "_meta.intl": "ja-JP",
 
@@ -109,4 +109,4 @@
 
     "error.title": "エラーが発生しました。",
     "error.text": "しばらくしてからもう一度お試しください。"
-}
+};

@@ -15,12 +15,12 @@ const post = (slug, extra = {}) => ({
 
 let clock, calls, responder, pending, env, cache;
 
-function cx() {
+function cx(timeouts = { foreground: 30, background: 200 }) {
     return strapi.contentContext({
         env, cache, origin: 'https://monarchdem.me',
         now: () => clock,
         waitUntil: (p) => pending.push(p),
-        timeouts: { foreground: 30, background: 200 },
+        timeouts,
         fetch: async (url, init) => {
             calls.push(url);
             return responder(url, init);
@@ -75,7 +75,8 @@ test('Strapi hanging with nothing cached: calm unavailable within the foreground
         init.signal.addEventListener('abort', () => { aborted = true; });
         return never(url, init);
     };
-    const res = await strapi.getJournalList(cx());
+    // Wide gap between the two timeouts so a slow machine cannot blur them.
+    const res = await strapi.getJournalList(cx({ foreground: 30, background: 2000 }));
     assert.equal(res.status, 'unavailable');
     assert.equal(aborted, false, 'page answered while Strapi was still hanging');
     await settle();

@@ -1,6 +1,6 @@
-import en from './locales/en.json' with { type: 'json' };
-import ja from './locales/ja.json' with { type: 'json' };
-import de from './locales/de.json' with { type: 'json' };
+import en from './locales/en.js';
+import ja from './locales/ja.js';
+import de from './locales/de.js';
 import { escape, raw } from '../../lib/html.js';
 import { parseCookies } from '../../lib/cookies.js';
 
