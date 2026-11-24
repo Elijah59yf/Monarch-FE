@@ -903,7 +903,7 @@ function filterProjects(category) {
 
 /* --- Project Status Check --- */
 
-// Platforms that are always up — no point pinging these
+// Platforms that are always up, so there is no point pinging these
 const EXTERNAL_HOSTS = [
     'github.com', 'gitlab.com', 'bitbucket.org',
     'play.google.com', 'apps.apple.com', 'f-droid.org',
@@ -1022,7 +1022,7 @@ async function fetchProjects() {
             const projectLink = data.link || '#';
             
             // Only give a card the tall "featured" treatment if it actually
-            // has an image to fill that space with — otherwise it renders
+            // has an image to fill that space with. Otherwise it renders
             // as a large, mostly-empty box.
             const isFeatured = index % 3 === 0 && !!imageUrl;
             

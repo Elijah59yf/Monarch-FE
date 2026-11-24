@@ -15,7 +15,7 @@ const translations = {
         // Hero
         "hero.tagline": "Digital Engineering",
         "hero.title": "Crafting Systems with Purpose",
-        "hero.description": "Specializing in network engineering, system administration, and cloud infrastructure — designing robust solutions that keep businesses connected and secure.",
+        "hero.description": "Specializing in network engineering, system administration, and cloud infrastructure. I design robust solutions that keep businesses connected and secure.",
         "hero.cta": "Explore My Work",
         
         // Explore Section
@@ -26,7 +26,7 @@ const translations = {
         "explore.about.desc": "The journey from curiosity to craft. Computer Engineering at UNILAG, with a focus on infrastructure and systems.",
         "explore.about.link": "Learn more",
         "explore.expertise.title": "Expertise",
-        "explore.expertise.desc": "Network engineering, system administration, and IT solutions — the invisible architecture of modern technology.",
+        "explore.expertise.desc": "Network engineering, system administration, and IT solutions: the invisible architecture of modern technology.",
         "explore.expertise.link": "View services",
         "explore.work.title": "Work",
         "explore.work.desc": "Selected projects showcasing practical solutions and technical craftsmanship.",
@@ -45,8 +45,8 @@ const translations = {
         "about.subtitle": "The philosophy of purposeful engineering.",
         "about.name": "Akinseloyin Elijah Oluwademilade",
         "about.intro": "Known as <strong>Monarch</strong>. Currently pursuing Computer Engineering at the University of Lagos, I'm drawn to the invisible architecture that powers our connected world.",
-        "about.philosophy": "My approach combines technical precision with thoughtful design — like Japandi philosophy applied to systems engineering. Every network configuration, every server setup, every solution should be both functional and intentional.",
-        "about.goal": "The goal isn't just to make things work — it's to make them work beautifully, efficiently, and sustainably.",
+        "about.philosophy": "My approach combines technical precision with thoughtful design, much like Japandi philosophy applied to systems engineering. Every network configuration, every server setup, every solution should be both functional and intentional.",
+        "about.goal": "The goal isn't just to make things work. It's to make them work beautifully, efficiently, and sustainably.",
         "about.cv": "Download CV",
         "about.skills.title": "Core Competencies",
         "about.skill.network": "Network Engineering",
@@ -105,7 +105,7 @@ const translations = {
         "explore.about.desc": "好奇心から技術への旅。UNILAGでコンピュータ工学を学び、インフラとシステムに焦点を当てています。",
         "explore.about.link": "詳しく見る",
         "explore.expertise.title": "専門知識",
-        "explore.expertise.desc": "ネットワークエンジニアリング、システム管理、ITソリューション — 現代技術の見えないアーキテクチャ。",
+        "explore.expertise.desc": "ネットワークエンジニアリング、システム管理、ITソリューション。どれも現代技術を支える見えないアーキテクチャです。",
         "explore.expertise.link": "サービスを見る",
         "explore.work.title": "作品",
         "explore.work.desc": "実用的なソリューションと技術的な職人技を示す厳選されたプロジェクト。",
@@ -173,7 +173,7 @@ const translations = {
         // Hero
         "hero.tagline": "Digitale Technik",
         "hero.title": "Systeme mit Zweck gestalten",
-        "hero.description": "Spezialisiert auf Netzwerktechnik, Systemadministration und Cloud-Infrastruktur — robuste Lösungen für sichere und vernetzte Unternehmen.",
+        "hero.description": "Spezialisiert auf Netzwerktechnik, Systemadministration und Cloud-Infrastruktur. Ich entwickle robuste Lösungen für sichere und vernetzte Unternehmen.",
         "hero.cta": "Meine Arbeit entdecken",
         
         // Explore Section
@@ -184,7 +184,7 @@ const translations = {
         "explore.about.desc": "Die Reise von Neugier zur Meisterschaft. Informatik an der UNILAG mit Fokus auf Infrastruktur und Systeme.",
         "explore.about.link": "Mehr erfahren",
         "explore.expertise.title": "Expertise",
-        "explore.expertise.desc": "Netzwerktechnik, Systemadministration und IT-Lösungen — die unsichtbare Architektur moderner Technologie.",
+        "explore.expertise.desc": "Netzwerktechnik, Systemadministration und IT-Lösungen: die unsichtbare Architektur moderner Technologie.",
         "explore.expertise.link": "Leistungen ansehen",
         "explore.work.title": "Arbeit",
         "explore.work.desc": "Ausgewählte Projekte, die praktische Lösungen und technische Handwerkskunst zeigen.",
@@ -203,8 +203,8 @@ const translations = {
         "about.subtitle": "Die Philosophie des zweckgerichteten Engineerings.",
         "about.name": "Akinseloyin Elijah Oluwademilade",
         "about.intro": "Bekannt als <strong>Monarch</strong>. Derzeit Informatikstudent an der Universität Lagos, fasziniert von der unsichtbaren Architektur, die unsere vernetzte Welt antreibt.",
-        "about.philosophy": "Mein Ansatz verbindet technische Präzision mit durchdachtem Design — wie Japandi-Philosophie auf Systemtechnik angewandt. Jede Netzwerkkonfiguration, jeder Server-Setup, jede Lösung sollte funktional und absichtsvoll sein.",
-        "about.goal": "Das Ziel ist nicht nur, dass es funktioniert — sondern dass es schön, effizient und nachhaltig funktioniert.",
+        "about.philosophy": "Mein Ansatz verbindet technische Präzision mit durchdachtem Design, ganz im Sinne der Japandi-Philosophie, übertragen auf die Systemtechnik. Jede Netzwerkkonfiguration, jeder Server-Setup, jede Lösung sollte funktional und absichtsvoll sein.",
+        "about.goal": "Das Ziel ist nicht nur, dass es funktioniert, sondern dass es schön, effizient und nachhaltig funktioniert.",
         "about.cv": "Lebenslauf herunterladen",
         "about.skills.title": "Kernkompetenzen",
         "about.skill.network": "Netzwerktechnik",

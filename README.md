@@ -27,9 +27,9 @@
 
 ## ✦ Overview
 
-A personal portfolio and digital journal for **Akinseloyin Elijah Oluwademilade (Monarch)** — Computer Engineering student at the University of Lagos. 
+A personal portfolio and digital journal for **Akinseloyin Elijah Oluwademilade (Monarch)**, a Computer Engineering student at the University of Lagos. 
 
-This site embodies a design philosophy where **Japanese minimalism meets Scandinavian functionality** — clean lines, purposeful whitespace, and an understated elegance that lets the work speak for itself.
+This site embodies a design philosophy where **Japanese minimalism meets Scandinavian functionality**: clean lines, purposeful whitespace, and an understated elegance that lets the work speak for itself.
 
 <br>
 
@@ -41,7 +41,7 @@ This site embodies a design philosophy where **Japanese minimalism meets Scandin
 
 | Aspect | Approach |
 |:-------|:---------|
-| **Typography** | Cormorant Garamond × DM Sans — editorial elegance meets modern clarity |
+| **Typography** | Cormorant Garamond × DM Sans, where editorial elegance meets modern clarity |
 | **Color Palette** | Deep charcoal, muted gold accents, warm stone tones |
 | **Layout** | Asymmetric grids with generous breathing room |
 | **Interaction** | Subtle fade-ins, smooth transitions, micro-animations |
