@@ -70,18 +70,34 @@
     --font-body: var(--face-body), var(--font-jp), sans-serif;
 }
 
-/* --- Icons: stroke follows text colour, accent dot follows --via --- */
+/* --- Icons ---
+   Stroke settings live on the host <svg> and inherit into the sprite.
+   Decorative icons default to --charcoal; inside links and buttons they
+   follow the control's text colour so hover states keep working.
+   The accent dot reads --via, which no hover state changes. */
 .icon {
     width: 1em;
     height: 1em;
     flex-shrink: 0;
     vertical-align: -0.125em;
+    color: var(--icon-color, var(--charcoal));
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.75;
+    stroke-width: 1.5;
     stroke-linecap: square;
     stroke-linejoin: miter;
     overflow: visible;
+}
+
+a,
+button {
+    --icon-color: currentColor;
+}
+
+.explore-card:hover,
+.service-card:hover,
+.project-card:hover {
+    --icon-color: var(--ink);
 }
 
 /* --- Dark Mode --- */
@@ -129,6 +145,11 @@
     border-color: var(--terracotta);
 }
 
+.theme-toggle .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
 .theme-toggle .icon-sun {
     display: none;
 }
@@ -174,6 +195,11 @@
     background: var(--sand);
     transform: scale(1.05);
     border-color: var(--terracotta);
+}
+
+.lang-toggle .icon {
+    width: 1.125rem;
+    height: 1.125rem;
 }
 
 .lang-toggle .lang-code {
@@ -738,7 +764,7 @@ section {
     height: 100%;
 }
 
-.explore-card .icon {
+.explore-card .explore-icon {
     width: 48px;
     height: 48px;
     display: flex;
@@ -748,7 +774,6 @@ section {
     border-radius: 50%;
     margin-bottom: var(--space-md);
     font-size: 1.25rem;
-    color: var(--moss);
 }
 
 .explore-card h3 {
@@ -1009,7 +1034,6 @@ section {
 }
 
 .skill-item .icon {
-    color: var(--terracotta);
     width: 20px;
 }
 
@@ -1056,7 +1080,6 @@ section {
 }
 
 .skill-name .icon {
-    color: var(--terracotta);
     width: 18px;
     font-size: 0.95rem;
 }
@@ -1167,8 +1190,7 @@ section {
     transition: var(--transition-fast);
 }
 
-.service-card:hover .service-number,
-.service-card:hover .service-icon {
+.service-card:hover .service-number {
     color: var(--terracotta);
 }
 
@@ -1290,7 +1312,6 @@ section {
 
 .project-image .icon {
     font-size: 2rem;
-    color: var(--stone);
 }
 
 .project-content {
@@ -1714,6 +1735,11 @@ footer {
     transition: var(--transition-fast);
 }
 
+.social-icons .icon {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
 .social-icons a:hover {
     background: var(--terracotta);
     color: var(--warm-white);
@@ -1745,6 +1771,11 @@ footer p {
     transform: translateY(20px);
     transition: var(--transition-medium);
     z-index: 999;
+}
+
+#back-to-top .icon {
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 #back-to-top.show {
@@ -1977,7 +2008,6 @@ footer p {
 
 .view-count .icon {
     font-size: 0.8rem;
-    color: var(--terracotta);
 }
 
 .post-meta .view-count {
