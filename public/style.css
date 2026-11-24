@@ -27,6 +27,7 @@
     --terracotta: #c67b5c;
     --via: var(--terracotta);
     --terracotta-muted: #b8927e;
+    --terracotta-deep: #9c5236;       /* terracotta for text on light grounds: 5.0:1 on sand */
     --moss: #7a8b6e;
     --moss-light: #9aab8e;
     --charcoal: #3d3d3d;
@@ -36,12 +37,12 @@
 
     /* Colour roles: aliases of the palette above, no new colours.
        Text needs 4.5:1 and icons and controls 3:1 (WCAG AA) in both themes.
-       Terracotta is 2.9 to 3.1:1 on the light grounds, so in the light theme it
-       is used for fills, rules and dots, not for text. */
+       Terracotta is 2.9 to 3.1:1 on the light grounds, so light-theme text uses
+       --terracotta-deep; terracotta itself is for fills, rules and dots. */
     --icon: var(--charcoal);          /* decorative and meta icons */
     --icon-strong: var(--ink);        /* icon hover and active */
     --text-muted: var(--charcoal);    /* meta rows, counts, notices, placeholders */
-    --accent-text: var(--ink);        /* labels and active states that were terracotta */
+    --accent-text: var(--terracotta-deep); /* labels, links and active states */
     --on-accent: var(--deep-ink);     /* text and icons on a terracotta fill */
     
     /* Typography */
@@ -1606,10 +1607,7 @@ section {
 }
 
 .blog-post-preview h2 a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--terracotta);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+    color: var(--accent-text);
 }
 
 .blog-post-preview p {
