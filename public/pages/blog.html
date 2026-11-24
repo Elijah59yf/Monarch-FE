@@ -15,8 +15,6 @@
     <link rel="apple-touch-icon" href="../img/icon-192.png">
     
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- Styles -->
     <link rel="stylesheet" href="../style.css">
@@ -59,12 +57,12 @@
                 <!-- Expandable Search -->
                 <div class="search-wrapper">
                     <button class="search-toggle" id="search-toggle" aria-label="Search articles">
-                        <i class="fas fa-search"></i>
+                        <svg class="icon icon-search" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-search"/></svg>
                     </button>
                     <div class="search-box">
                         <input type="text" id="blog-search" data-i18n-placeholder="blog.search" placeholder="Search articles..." autocomplete="off">
                         <button class="search-clear" id="search-clear" aria-label="Clear search">
-                            <i class="fas fa-times"></i>
+                            <svg class="icon icon-close" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-close"/></svg>
                         </button>
                     </div>
                 </div>
@@ -82,13 +80,13 @@
                 <span class="footer-logo">Monarch</span>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/elijah59yf" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin-in"></i>
+                        <svg class="icon icon-linkedin" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-linkedin"/></svg>
                     </a>
                     <a href="https://github.com/Elijah59yf" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
+                        <svg class="icon icon-github" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-github"/></svg>
                     </a>
                     <a href="mailto:eakinseloyin@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
+                        <svg class="icon icon-mail" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-mail"/></svg>
                     </a>
                 </div>
                 <p>&copy; 2026 Akinseloyin Elijah Oluwademilade</p>
@@ -98,32 +96,29 @@
 
     <!-- Theme Toggle -->
     <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-moon"/></svg>
+        <svg class="icon icon-sun" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-sun"/></svg>
     </button>
     
     <!-- Language Toggle -->
     <button class="lang-toggle" id="lang-toggle" aria-label="Change language" title="Change language">
-        <i class="fas fa-globe"></i>
+        <svg class="icon icon-globe" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-globe"/></svg>
         <span class="lang-code" id="current-lang">EN</span>
     </button>
     <div class="lang-dropdown" id="lang-dropdown">
         <button class="lang-option active" data-lang="en">
-            <span class="flag">🇬🇧</span>
             <span>English</span>
         </button>
         <button class="lang-option" data-lang="ja">
-            <span class="flag">🇯🇵</span>
             <span>日本語</span>
         </button>
         <button class="lang-option" data-lang="de">
-            <span class="flag">🇩🇪</span>
             <span>Deutsch</span>
         </button>
     </div>
 
     <!-- Back to Top -->
-    <a id="back-to-top" href="#"><i class="fas fa-arrow-up"></i></a>
+    <a id="back-to-top" href="#"><svg class="icon icon-arrow-up" aria-hidden="true"><use href="/assets/icons/monarch-icons.svg#i-arrow-up"/></svg></a>
 
     <script src="../translations.js"></script>
     <script src="../script.js" defer></script>

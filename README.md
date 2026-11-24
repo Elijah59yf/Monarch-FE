@@ -104,7 +104,7 @@ This site embodies a design philosophy where **Japanese minimalism meets Scandin
 | HTML5 | Semantic structure |
 | CSS3 | Custom properties, Grid, Flexbox |
 | Vanilla JS | ES6+ modules, Fetch API |
-| Font Awesome | Iconography |
+| SVG sprite | Iconography (assets/icons/monarch-icons.svg) |
 | Self-hosted fonts | Cormorant Garamond, DM Sans (woff2); system fonts for Japanese |
 
 </details>

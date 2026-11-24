@@ -25,6 +25,7 @@
     --stone: #d4cdc4;
     --clay: #c4b8a8;
     --terracotta: #c67b5c;
+    --via: var(--terracotta);
     --terracotta-muted: #b8927e;
     --moss: #7a8b6e;
     --moss-light: #9aab8e;
@@ -67,6 +68,20 @@
 :root:lang(ja) {
     --font-display: var(--face-display), var(--font-jp), serif;
     --font-body: var(--face-body), var(--font-jp), sans-serif;
+}
+
+/* --- Icons: stroke follows text colour, accent dot follows --via --- */
+.icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    vertical-align: -0.125em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    overflow: visible;
 }
 
 /* --- Dark Mode --- */
@@ -114,19 +129,19 @@
     border-color: var(--terracotta);
 }
 
-.theme-toggle .fa-sun {
+.theme-toggle .icon-sun {
     display: none;
 }
 
-.theme-toggle .fa-moon {
+.theme-toggle .icon-moon {
     display: block;
 }
 
-[data-theme="dark"] .theme-toggle .fa-sun {
+[data-theme="dark"] .theme-toggle .icon-sun {
     display: block;
 }
 
-[data-theme="dark"] .theme-toggle .fa-moon {
+[data-theme="dark"] .theme-toggle .icon-moon {
     display: none;
 }
 
@@ -210,10 +225,6 @@
 .lang-option.active {
     color: var(--terracotta);
     font-weight: 600;
-}
-
-.lang-option .flag {
-    font-size: 1.1rem;
 }
 
 /* Smooth theme transition */
@@ -630,12 +641,12 @@ header .container {
     transform-origin: left;
 }
 
-.btn i {
+.btn .icon {
     font-size: 0.8rem;
     transition: transform 0.3s var(--ease-gentle);
 }
 
-.btn:hover i {
+.btn:hover .icon {
     transform: translateX(4px);
 }
 
@@ -758,11 +769,11 @@ section {
     gap: 0.5rem;
 }
 
-.explore-card .card-link i {
+.explore-card .card-link .icon {
     transition: transform 0.3s var(--ease-gentle);
 }
 
-.explore-card:hover .card-link i {
+.explore-card:hover .card-link .icon {
     transform: translateX(4px);
 }
 
@@ -806,7 +817,7 @@ section {
     margin-bottom: var(--space-md);
 }
 
-.testimonial-content i.fa-quote-left {
+.testimonial-content .icon-quote {
     position: absolute;
     top: var(--space-md);
     left: var(--space-md);
@@ -997,7 +1008,7 @@ section {
     font-size: 0.9rem;
 }
 
-.skill-item i {
+.skill-item .icon {
     color: var(--terracotta);
     width: 20px;
 }
@@ -1044,7 +1055,7 @@ section {
     gap: 0.5rem;
 }
 
-.skill-name i {
+.skill-name .icon {
     color: var(--terracotta);
     width: 18px;
     font-size: 0.95rem;
@@ -1277,7 +1288,7 @@ section {
     transform: scale(1.05);
 }
 
-.project-image i {
+.project-image .icon {
     font-size: 2rem;
     color: var(--stone);
 }
@@ -1964,7 +1975,7 @@ footer p {
     opacity: 0.8;
 }
 
-.view-count i {
+.view-count .icon {
     font-size: 0.8rem;
     color: var(--terracotta);
 }
@@ -1984,7 +1995,7 @@ footer p {
     animation: view-pop 0.3s var(--ease-gentle);
 }
 
-.view-count.just-viewed i {
+.view-count.just-viewed .icon {
     color: var(--moss);
 }
 

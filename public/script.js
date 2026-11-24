@@ -3,6 +3,13 @@
    Subtle interactions & mindful motion
    ============================================ */
 
+/* --- Icons (SVG sprite) --- */
+const ICON_SPRITE = '/assets/icons/monarch-icons.svg';
+
+function icon(name) {
+    return `<svg class="icon icon-${name}" aria-hidden="true"><use href="${ICON_SPRITE}#i-${name}"/></svg>`;
+}
+
 /* --- Theme Toggle (Dark Mode) --- */
 const themeToggle = document.querySelector('.theme-toggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -552,7 +559,7 @@ function addViewCountToPost(postDiv, viewCount) {
     
     const viewSpan = document.createElement('span');
     viewSpan.className = 'view-count just-viewed';
-    viewSpan.innerHTML = `<i class="fas fa-eye"></i> ${viewCount} view${viewCount !== 1 ? 's' : ''}`;
+    viewSpan.innerHTML = `${icon('eye')} ${viewCount} view${viewCount !== 1 ? 's' : ''}`;
     metaDiv.appendChild(viewSpan);
     
     // Remove animation class after it plays
@@ -724,13 +731,13 @@ async function fetchBlogPosts() {
                 ${imageUrl ? `<a href="${postLink}">${createBlurUpImage(imageUrl, data.title)}</a>` : '<div></div>'}
                 <div class="post-info">
                     <div class="post-meta">
-                        <span><i class="fas fa-calendar-alt"></i> ${postDate}</span>
-                        <span class="reading-time"><i class="fas fa-clock"></i> ${readingTime} ${minReadText}</span>
-                        <span class="view-count"><i class="fas fa-eye"></i> ${viewCount} ${viewsText}</span>
+                        <span>${icon('calendar')} ${postDate}</span>
+                        <span class="reading-time">${icon('clock')} ${readingTime} ${minReadText}</span>
+                        <span class="view-count">${icon('eye')} ${viewCount} ${viewsText}</span>
                     </div>
                     <h2><a href="${postLink}">${data.title}</a></h2>
                     ${data.excerpt ? `<p>${data.excerpt}</p>` : ''}
-                    <a href="${postLink}" class="btn">${readArticleText} <i class="fas fa-arrow-right"></i></a>
+                    <a href="${postLink}" class="btn">${readArticleText} ${icon('arrow-right')}</a>
                 </div>
             `;
             
@@ -806,14 +813,14 @@ async function fetchSinglePost(slug) {
             <div class="post-full-header">
                 <h1>${post.title || 'Untitled'}</h1>
                 <div class="post-meta">
-                    <span><i class="fas fa-calendar-alt"></i> ${postDate}</span>
-                    <span><i class="fas fa-user"></i> Akinseloyin Elijah</span>
-                    <span class="reading-time"><i class="fas fa-clock"></i> ${readingTime} ${minReadText}</span>
+                    <span>${icon('calendar')} ${postDate}</span>
+                    <span>${icon('user')} Akinseloyin Elijah</span>
+                    <span class="reading-time">${icon('clock')} ${readingTime} ${minReadText}</span>
                 </div>
             </div>
             ${imageUrl ? `<div class="post-full-image">${createBlurUpImage(imageUrl, post.title || '')}</div>` : ''}
             <div class="post-full-body">${contentHtml}</div>
-            <a href="blog.html" class="btn" style="margin-top: 3rem;"><i class="fas fa-arrow-left"></i> ${backText}</a>
+            <a href="blog.html" class="btn" style="margin-top: 3rem;">${icon('arrow-left')} ${backText}</a>
         `;
         
         postContainer.appendChild(postDiv);
@@ -1026,7 +1033,7 @@ async function fetchProjects() {
             
             projectElement.innerHTML = `
                 <div class="project-image">
-                    ${imageUrl ? createBlurUpImage(imageUrl, data.title) : '<i class="fas fa-folder-open"></i>'}
+                    ${imageUrl ? createBlurUpImage(imageUrl, data.title) : icon('folder')}
                 </div>
                 <div class="project-content">
                     <h3>${data.title}</h3>
@@ -1035,7 +1042,7 @@ async function fetchProjects() {
                         ${data.tags ? data.tags.split(',').map(tag => `<span>${tag.trim()}</span>`).join('') : ''}
                     </div>
                     <a href="${projectLink}" target="_blank" class="btn">
-                        View Project <i class="fas fa-external-link-alt"></i>
+                        View Project ${icon('external')}
                     </a>
                 </div>
             `;
@@ -1046,7 +1053,7 @@ async function fetchProjects() {
             if (imgEl) {
                 imgEl.addEventListener('error', () => {
                     const imageBox = projectElement.querySelector('.project-image');
-                    if (imageBox) imageBox.innerHTML = '<i class="fas fa-folder-open"></i>';
+                    if (imageBox) imageBox.innerHTML = icon('folder');
                     projectElement.classList.remove('featured');
                 }, { once: true });
             }
