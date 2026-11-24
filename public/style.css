@@ -235,6 +235,7 @@ button {
     padding: 0.6rem 1rem;
     font-family: var(--font-body);
     font-size: 0.9rem;
+    line-height: normal;
     color: var(--charcoal);
     background: none;
     border: none;

@@ -1,0 +1,22 @@
+# Static assets only. HTML is rendered by Functions, which set their own headers.
+
+# Not fingerprinted: always revalidate (cheap 304s) so a deploy shows at once.
+/style.css
+  Cache-Control: public, max-age=0, must-revalidate
+/script.js
+  Cache-Control: public, max-age=0, must-revalidate
+/site.js
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/icons/*
+  Cache-Control: public, max-age=0, must-revalidate
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Font files never change under the same name.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=86400
+/Elijah-Akinseloyin-CV.pdf
+  Cache-Control: public, max-age=86400

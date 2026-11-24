@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "include": ["/*"],
+    "exclude": [
+        "/",
+        "/index.html",
+        "/pages/*",
+        "/translations.js",
+        "/script.js",
+        "/site.js",
+        "/style.css",
+        "/manifest.json",
+        "/Elijah-Akinseloyin-CV.pdf",
+        "/assets/*",
+        "/img/*"
+    ]
+}

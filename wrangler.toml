@@ -13,4 +13,5 @@ binding = "FILES"
 bucket_name = "monarch-files"
 
 [vars]
+SITE_URL = "https://monarchdem.me"
 STRAPI_URL = "https://api.monarchdem.me"
