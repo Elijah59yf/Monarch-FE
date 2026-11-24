@@ -1,0 +1,13 @@
+name = "monarch-fe"
+pages_build_output_dir = "public"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "monarch-db"
+database_id = "38978493-611e-4923-a679-e6cdc37a14b2"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "monarch-files"

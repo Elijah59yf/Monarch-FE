@@ -137,20 +137,28 @@ This site embodies a design philosophy where **Japanese minimalism meets Scandin
 ```
 Monarch-FE/
 │
-├── index.html              # Landing page
-├── style.css               # Global styles
-├── script.js               # Core functionality
+├── public/                 # Static site (Pages output dir)
+│   ├── index.html          # Landing page
+│   ├── style.css           # Global styles
+│   ├── script.js           # Core functionality
+│   ├── translations.js     # EN / JA / DE strings
+│   ├── pages/              # about, services, projects, blog, blog-post
+│   ├── assets/fonts/       # Self-hosted woff2
+│   ├── assets/icons/       # SVG sprite
+│   └── img/
 │
-├── pages/
-│   ├── about.html          # Biography & journey
-│   ├── services.html       # Skills & expertise
-│   ├── projects.html       # Portfolio showcase
-│   ├── blog.html           # Journal entries
-│   └── blog-post.html      # Single post view
-│
-├── img/                    # Static assets
-└── my-cv.pdf               # Curriculum Vitae
+├── functions/              # Pages Functions routes (thin)
+│   └── api/health.js       # GET /api/health: D1 and R2 binding check
+├── src/
+│   ├── lib/                # Shared server helpers
+│   └── modules/            # One folder per feature module
+├── migrations/             # Numbered D1 migrations
+├── .github/workflows/      # Applies D1 migrations on push to main
+└── wrangler.toml           # Pages config and bindings
 ```
+
+Server code in `src/` is bundled into Functions and never served as a static file.
+Schema changes ship before the code that depends on them.
 
 <br>
 
@@ -161,7 +169,6 @@ Monarch-FE/
 - Local web server (Apache/Nginx/Live Server)
 - Backend services running:
   - Strapi CMS → `localhost:1337`
-  - Mail API → `localhost:3000`
 
 ### Quick Start
 

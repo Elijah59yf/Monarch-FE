@@ -1,0 +1,31 @@
+name: D1 migrations
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'migrations/**'
+      - 'wrangler.toml'
+      - '.github/workflows/d1-migrations.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: d1-migrations
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply migrations to monarch-db
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.167.0'
+          command: d1 migrations apply monarch-db --remote
