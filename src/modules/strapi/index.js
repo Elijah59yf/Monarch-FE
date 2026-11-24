@@ -14,7 +14,7 @@ const L1_FRESH_MS = 60_000;
 const L1_MAX_AGE_S = 86_400;
 const L2_FRESH_MS = 10 * 60_000;
 const NOT_FOUND_MS = 60_000;              // negative results live in L1 only
-const TIMEOUTS = { foreground: 3_000, background: 25_000 };
+const TIMEOUTS = { foreground: 3_000, background: 25_000, image: 5_000 };
 const SLUG = /^[A-Za-z0-9._~-]{1,120}$/;
 const NOT_FOUND = Symbol('not found');
 
@@ -158,6 +158,26 @@ async function l2Delete(cx, key) {
     }
 }
 
+// Strapi keeps uploads on Render's disk, which is wiped on restart, so an image
+// URL can outlive its file. Images answering 404 or 410 are dropped during the
+// refresh, so pages show the no-image layout instead of a broken image.
+// Any other outcome, including a timeout, keeps the image.
+async function dropMissingImages(cx, data) {
+    const items = Array.isArray(data) ? data : [data];
+    const urls = [...new Set(items.map((item) => item?.image).filter(Boolean))];
+    const missing = new Set();
+    await Promise.all(urls.map(async (url) => {
+        try {
+            const res = await cx.fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(cx.timeouts.image) });
+            if (res.status === 404 || res.status === 410) missing.add(url);
+        } catch {
+            // unknown, keep it
+        }
+    }));
+    for (const item of items) if (item && missing.has(item.image)) item.image = '';
+    return data;
+}
+
 // One fetch per key per isolate at a time. Uses the long timeout: it either
 // answers the waiting visitor or keeps running in waitUntil to wake Render.
 function refresh(cx, resource, arg, key) {
@@ -171,7 +191,8 @@ function refresh(cx, resource, arg, key) {
             signal: AbortSignal.timeout(cx.timeouts.background),
         });
         if (!res.ok) throw new Error(`Strapi responded ${res.status}`);
-        const data = resource.normalize(await res.json(), base);
+        const normalized = resource.normalize(await res.json(), base);
+        const data = normalized === NOT_FOUND ? normalized : await dropMissingImages(cx, normalized);
         const now = cx.now();
         if (data === NOT_FOUND) {
             await Promise.all([l1Put(cx, key, { notFound: true, checkedAt: now }), l2Delete(cx, key)]);

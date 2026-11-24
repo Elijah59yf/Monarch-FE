@@ -13,7 +13,7 @@ const post = (slug, extra = {}) => ({
     featured_image: { url: '/uploads/a.png' }, ...extra,
 });
 
-let clock, calls, responder, pending, env, cache;
+let clock, calls, responder, images, pending, env, cache;
 
 function cx(timeouts = { foreground: 30, background: 200 }) {
     return strapi.contentContext({
@@ -22,6 +22,7 @@ function cx(timeouts = { foreground: 30, background: 200 }) {
         waitUntil: (p) => pending.push(p),
         timeouts,
         fetch: async (url, init) => {
+            if (init?.method === 'HEAD') return images(url, init);
             calls.push(url);
             return responder(url, init);
         },
@@ -38,6 +39,7 @@ beforeEach(() => {
     env = { DB: createD1(), STRAPI_URL: BASE + '/' };
     cache = createCache();
     responder = () => json(posts(post('a')));
+    images = () => new Response(null, { status: 200 });
 });
 
 test('cold cache: fetches, normalizes and stores in both layers', async () => {
@@ -202,4 +204,28 @@ test('block renderer escapes CMS text and neutralizes unsafe links', () => {
     assert.equal(out,
         '<p><strong>&lt;img src=x onerror=alert(1)&gt;</strong><a href="#" target="_blank" rel="noopener noreferrer">x</a></p>'
         + '<h6>H</h6><pre><code>&lt;/code&gt;&lt;script&gt;</code></pre>');
+});
+
+test('images whose files are gone are dropped; uncertain ones are kept', async () => {
+    responder = () => json({ data: [
+        { title: 'Gone', main_image: { url: '/uploads/gone.png' } },
+        { title: 'Slow', main_image: { url: '/uploads/slow.png' } },
+        { title: 'Error', main_image: { url: '/uploads/error.png' } },
+        { title: 'Fine', main_image: { url: '/uploads/fine.png' } },
+    ] });
+    images = (url, init) => {
+        if (url.endsWith('gone.png')) return new Response(null, { status: 404 });
+        if (url.endsWith('error.png')) return new Response(null, { status: 500 });
+        if (url.endsWith('slow.png')) return never(url, init);
+        return new Response(null, { status: 200 });
+    };
+    const res = await strapi.getProjects(strapi.contentContext({
+        env, cache, origin: 'https://monarchdem.me', now: () => clock,
+        waitUntil: (p) => pending.push(p),
+        timeouts: { foreground: 1000, background: 2000, image: 50 },
+        fetch: async (url, init) => (init?.method === 'HEAD' ? images(url, init) : responder(url, init)),
+    }));
+    assert.deepEqual(res.data.map((p) => [p.title, p.image.split('/').pop()]), [
+        ['Gone', ''], ['Slow', 'slow.png'], ['Error', 'error.png'], ['Fine', 'fine.png'],
+    ]);
 });

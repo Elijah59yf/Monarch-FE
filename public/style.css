@@ -33,6 +33,16 @@
     --ink: #2a2a2a;
     --deep-ink: #1a1a1a;
     --shadow: rgba(42, 42, 42, 0.08);
+
+    /* Colour roles: aliases of the palette above, no new colours.
+       Text needs 4.5:1 and icons and controls 3:1 (WCAG AA) in both themes.
+       Terracotta is 2.9 to 3.1:1 on the light grounds, so in the light theme it
+       is used for fills, rules and dots, not for text. */
+    --icon: var(--charcoal);          /* decorative and meta icons */
+    --icon-strong: var(--ink);        /* icon hover and active */
+    --text-muted: var(--charcoal);    /* meta rows, counts, notices, placeholders */
+    --accent-text: var(--ink);        /* labels and active states that were terracotta */
+    --on-accent: var(--deep-ink);     /* text and icons on a terracotta fill */
     
     /* Typography */
     --face-display: 'Cormorant Garamond';
@@ -72,15 +82,15 @@
 
 /* --- Icons ---
    Stroke settings live on the host <svg> and inherit into the sprite.
-   Decorative icons default to --charcoal; inside links and buttons they
-   follow the control's text colour so hover states keep working.
-   The accent dot reads --via, which no hover state changes. */
+   Decorative icons use --icon and --icon-strong on hover; inside links,
+   buttons and meta rows they follow the text colour so the pair reads as
+   one unit. The accent dot reads --via, which nothing overrides. */
 .icon {
     width: 1em;
     height: 1em;
     flex-shrink: 0;
     vertical-align: -0.125em;
-    color: var(--icon-color, var(--charcoal));
+    color: var(--icon-color, var(--icon));
     fill: none;
     stroke: currentColor;
     stroke-width: 1.5;
@@ -90,14 +100,15 @@
 }
 
 a,
-button {
+button,
+.post-meta {
     --icon-color: currentColor;
 }
 
 .explore-card:hover,
 .service-card:hover,
 .project-card:hover {
-    --icon-color: var(--ink);
+    --icon-color: var(--icon-strong);
 }
 
 /* --- Dark Mode --- */
@@ -116,6 +127,8 @@ button {
     --ink: #e8e8ec;
     --deep-ink: #f5f5f8;
     --shadow: rgba(0, 0, 0, 0.3);
+    --accent-text: var(--terracotta);
+    --on-accent: var(--warm-white);
 }
 
 /* --- Theme Toggle Button --- */
@@ -246,11 +259,11 @@ button {
 
 .lang-option:hover {
     background: var(--sand);
-    color: var(--terracotta);
+    color: var(--accent-text);
 }
 
 .lang-option.active {
-    color: var(--terracotta);
+    color: var(--accent-text);
     font-weight: 600;
 }
 
@@ -291,7 +304,7 @@ body {
 /* --- Selection --- */
 ::selection {
     background: var(--terracotta);
-    color: var(--warm-white);
+    color: var(--on-accent);
 }
 
 /* --- Typography --- */
@@ -384,7 +397,7 @@ header .container {
 
 .logo::after {
     content: '。';
-    color: var(--terracotta);
+    color: var(--via);
     margin-left: 2px;
 }
 
@@ -409,7 +422,7 @@ header .container {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--terracotta);
+    color: var(--accent-text);
     background: var(--sand);
 }
 
@@ -531,7 +544,7 @@ header .container {
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent-text);
     margin-bottom: var(--space-sm);
     opacity: 0;
     animation: fadeUp 1s var(--ease-gentle) 0.1s forwards;
@@ -690,6 +703,7 @@ header .container {
 
 .btn-filled:hover {
     background: var(--terracotta);
+    color: var(--on-accent);
 }
 
 /* ============================================
@@ -709,7 +723,7 @@ section {
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent-text);
     margin-bottom: var(--space-sm);
     display: block;
 }
@@ -789,7 +803,7 @@ section {
 .explore-card .card-link {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--terracotta);
+    color: var(--accent-text);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -1088,7 +1102,7 @@ section {
 .skill-percent {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--terracotta);
+    color: var(--accent-text);
     min-width: 40px;
     text-align: right;
 }
@@ -1241,13 +1255,13 @@ section {
 
 .filter-btn:hover {
     border-color: var(--terracotta);
-    color: var(--terracotta);
+    color: var(--accent-text);
 }
 
 .filter-btn.active {
     background: var(--terracotta);
     border-color: var(--terracotta);
-    color: var(--warm-white);
+    color: var(--on-accent);
 }
 
 .project-card.hidden {
@@ -1257,7 +1271,7 @@ section {
 .no-projects-message {
     grid-column: 1 / -1;
     text-align: center;
-    color: var(--stone);
+    color: var(--text-muted);
     padding: var(--space-xl);
     font-style: italic;
 }
@@ -1457,7 +1471,7 @@ section {
     border-radius: 50%;
     border: 1px solid var(--sand-dark);
     background: var(--paper);
-    color: var(--stone);
+    color: var(--icon);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1468,13 +1482,13 @@ section {
 
 .search-toggle:hover {
     border-color: var(--terracotta);
-    color: var(--terracotta);
+    color: var(--icon-strong);
 }
 
 .search-toggle.active {
     background: var(--terracotta);
     border-color: var(--terracotta);
-    color: var(--warm-white);
+    color: var(--on-accent);
 }
 
 .search-box {
@@ -1512,13 +1526,13 @@ section {
 }
 
 .search-box input::placeholder {
-    color: var(--stone);
+    color: var(--text-muted);
 }
 
 .search-clear {
     background: none;
     border: none;
-    color: var(--stone);
+    color: var(--icon);
     cursor: pointer;
     padding: 0.25rem;
     display: none;
@@ -1530,12 +1544,12 @@ section {
 }
 
 .search-clear:hover {
-    color: var(--terracotta);
+    color: var(--icon-strong);
 }
 
 .search-results-count {
     font-size: 0.8rem;
-    color: var(--stone);
+    color: var(--text-muted);
     text-align: right;
     min-height: 1rem;
 }
@@ -1578,15 +1592,11 @@ section {
 
 .blog-post-preview .post-meta {
     font-size: 0.8rem;
-    color: var(--stone);
+    color: var(--icon);
     margin-bottom: var(--space-xs);
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
-}
-
-.blog-post-preview .post-meta .reading-time {
-    color: var(--terracotta-muted);
 }
 
 .blog-post-preview h2 {
@@ -1596,12 +1606,20 @@ section {
 }
 
 .blog-post-preview h2 a:hover {
-    color: var(--terracotta);
+    text-decoration: underline;
+    text-decoration-color: var(--terracotta);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
 }
 
 .blog-post-preview p {
     font-size: 0.95rem;
     margin-bottom: var(--space-md);
+}
+
+/* Posts without a featured image use the full width instead of an empty column */
+.blog-post-preview.no-image {
+    grid-template-columns: 1fr;
 }
 
 @media (max-width: 768px) {
@@ -1621,16 +1639,12 @@ section {
 }
 
 .post-full-header .post-meta {
-    color: var(--stone);
+    color: var(--icon);
     font-size: 0.9rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--space-md);
-}
-
-.post-full-header .post-meta .reading-time {
-    color: var(--terracotta-muted);
 }
 
 .post-full-image {
@@ -1716,7 +1730,7 @@ footer {
 
 .footer-logo::after {
     content: '。';
-    color: var(--terracotta);
+    color: var(--via);
 }
 
 .social-icons {
@@ -1748,7 +1762,7 @@ footer {
 
 footer p {
     font-size: 0.85rem;
-    color: var(--charcoal);
+    color: inherit;
 }
 
 /* ============================================
@@ -1829,7 +1843,7 @@ footer p {
    ============================================ */
 .loading-message {
     text-align: center;
-    color: var(--stone);
+    color: var(--text-muted);
     padding: var(--space-xl);
     font-style: italic;
 }
@@ -2002,13 +2016,6 @@ footer p {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.85rem;
-    color: var(--charcoal);
-    opacity: 0.8;
-}
-
-.view-count .icon {
-    font-size: 0.8rem;
 }
 
 .post-meta .view-count {

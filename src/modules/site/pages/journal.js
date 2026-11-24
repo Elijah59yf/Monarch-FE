@@ -8,8 +8,8 @@ import { blurUpImage, delay } from './blur-up.js';
 function preview(post, index, { lang, settings }) {
     const href = localizedPath(lang, journalPostPath(post.slug));
     return html`
-                <article class="blog-post-preview fade-in" style="${delay(index)}">
-                    ${post.image ? html`<a href="${href}">${blurUpImage(post.image, post.title)}</a>` : html`<div></div>`}
+                <article class="blog-post-preview fade-in${post.image ? '' : ' no-image'}" style="${delay(index)}">
+                    ${post.image ? html`<a href="${href}">${blurUpImage(post.image, post.title)}</a>` : ''}
                     <div class="post-info">
                         <div class="post-meta">
                             <span>${icon('calendar')} ${formatDate(lang, post.date, settings['business.timezone'])}</span>

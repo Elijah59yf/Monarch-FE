@@ -29,7 +29,7 @@ export async function render({ lang, settings }) {
                 </a>
             </div>
             <div class="hero-visual">
-                <span class="vertical-text">${HERO_MARK}</span>
+                <span class="vertical-text" aria-hidden="true">${HERO_MARK}</span>
             </div>
         </section>
 
