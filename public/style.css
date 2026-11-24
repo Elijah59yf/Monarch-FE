@@ -2,8 +2,18 @@
    J A P A N D I
    Japanese Minimalism × Scandinavian Warmth
    
-   "Ma" (間) — The beauty of negative space
+   "Ma" (間): the beauty of negative space
    ============================================ */
+
+/* --- Fonts (self-hosted, Latin subset, OFL) --- */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap; src: url('assets/fonts/cormorant-garamond-300.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cormorant-garamond-400.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/cormorant-garamond-500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/cormorant-garamond-600.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/dm-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/dm-sans-500.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/dm-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/dm-sans-700.woff2') format('woff2'); }
 
 /* --- Custom Properties --- */
 :root {
@@ -24,9 +34,13 @@
     --shadow: rgba(42, 42, 42, 0.08);
     
     /* Typography */
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-accent: 'Noto Sans JP', sans-serif;
+    --face-display: 'Cormorant Garamond';
+    --face-body: 'DM Sans';
+    --font-jp: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Meiryo, 'Noto Sans CJK JP', 'Noto Sans JP';
+    --font-display: var(--face-display), Georgia, serif;
+    --font-body: var(--face-body), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-accent: var(--font-body);
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
     
     /* Spacing - Based on 8px grid */
     --space-xs: 0.5rem;
@@ -47,6 +61,12 @@
     --radius-md: 12px;
     --radius-lg: 24px;
     --radius-organic: 60% 40% 50% 50% / 50% 50% 40% 60%;
+}
+
+/* Japanese: Latin glyphs stay on the brand fonts, kana and kanji use the system font */
+:root:lang(ja) {
+    --font-display: var(--face-display), var(--font-jp), serif;
+    --font-body: var(--face-body), var(--font-jp), sans-serif;
 }
 
 /* --- Dark Mode --- */
@@ -1624,7 +1644,7 @@ section {
 }
 
 .post-full-body code {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.9rem;
 }
 

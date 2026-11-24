@@ -105,7 +105,7 @@ This site embodies a design philosophy where **Japanese minimalism meets Scandin
 | CSS3 | Custom properties, Grid, Flexbox |
 | Vanilla JS | ES6+ modules, Fetch API |
 | Font Awesome | Iconography |
-| Google Fonts | Cormorant Garamond, DM Sans, Noto Sans JP |
+| Self-hosted fonts | Cormorant Garamond, DM Sans (woff2); system fonts for Japanese |
 
 </details>
 
